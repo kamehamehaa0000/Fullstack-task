@@ -3,9 +3,14 @@
 
 **Note:** Please wait for a minute or two after starting the backend server, as it is deployed on Render's free-tier machine and may take some time to start up.
 
-<h2>[Live Link](https://assignmentfullstack.vercel.app/)</h2>
-<h2>[Live Link - Admin Panel](https://assignmentfullstack.vercel.app/admin)</h2>
-<h3>Note: Default username and password for the admin panel - "admin"</h3>
+### Live Links
+- **Main Application**: [Live Link](https://assignmentfullstack.vercel.app/)
+- **Admin Panel**: [Admin Panel Link](https://assignmentfullstack.vercel.app/admin)
+
+### Default Admin Credentials
+- **Username**: `admin`
+- **Password**: `admin`
+
 
 ## Description
 
