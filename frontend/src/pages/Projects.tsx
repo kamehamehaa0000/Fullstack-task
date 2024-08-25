@@ -4,9 +4,10 @@ import 'swiper/css'
 import 'swiper/css/scrollbar'
 import img1 from '../assets/page3/img3.svg'
 import { useProjects } from '../hooks/projectHooks'
+import Loader from '../components/Loader'
 
 const Projects = () => {
-  const { data: projects } = useProjects()
+  const { data: projects, isLoading: loading } = useProjects()
   console.log(projects)
   return (
     <div id="projects" className="w-full mt-20 h-auto py-16 px-4 bg-blue-50">
@@ -34,17 +35,21 @@ const Projects = () => {
           },
         }}
       >
-        {projects?.data?.map((project) => {
-          return (
-            <SwiperSlide>
-              <ProjectCard
-                image={project.imageUrl}
-                title={project.name}
-                description={project.description}
-              />
-            </SwiperSlide>
-          )
-        })}
+        {loading ? (
+          <Loader />
+        ) : (
+          projects?.data?.map((project) => {
+            return (
+              <SwiperSlide>
+                <ProjectCard
+                  image={project.imageUrl}
+                  title={project.name}
+                  description={project.description}
+                />
+              </SwiperSlide>
+            )
+          })
+        )}
       </Swiper>
     </div>
   )

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNewsletters, useRemoveNewsletter } from '../hooks/newsletterHooks' // Adjust the import path as needed
+import Loader from './Loader'
 
 const AdminNewsletter: React.FC = () => {
   const { data, isLoading, isError } = useNewsletters()
@@ -18,7 +19,12 @@ const AdminNewsletter: React.FC = () => {
     })
   }
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading)
+    return (
+      <div className="mt-20">
+        <Loader />
+      </div>
+    )
   if (isError) return <div>Error loading newsletters</div>
 
   return (

@@ -7,8 +7,9 @@ import circle from '../assets/circle.svg'
 import dots from '../assets/page3/dots.svg'
 import rlgcircle from '../assets/page3/leftmdCircle.svg'
 import { useClients } from '../hooks/clientHooks'
+import Loader from '../components/Loader'
 const Testimonials = () => {
-  const { data: clients } = useClients()
+  const { data: clients, isLoading: loading } = useClients()
 
   return (
     <div id="testimonials" className="relative w-full  h-auto p-8 sm:p-16">
@@ -44,18 +45,22 @@ const Testimonials = () => {
           },
         }}
       >
-        {clients?.data?.map((client) => {
-          return (
-            <SwiperSlide>
-              <ClientCard
-                image={client.imageUrl}
-                name={client.name}
-                description={client.description}
-                designation={client.designation}
-              />
-            </SwiperSlide>
-          )
-        })}
+        {loading ? (
+          <Loader />
+        ) : (
+          clients?.data?.map((client) => {
+            return (
+              <SwiperSlide>
+                <ClientCard
+                  image={client.imageUrl}
+                  name={client.name}
+                  description={client.description}
+                  designation={client.designation}
+                />
+              </SwiperSlide>
+            )
+          })
+        )}
       </Swiper>
     </div>
   )

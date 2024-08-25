@@ -5,9 +5,10 @@ import {
   useUpdateClient,
   useDeleteClient,
 } from '../hooks/clientHooks'
+import Loader from './Loader'
 
 const AdminClients: React.FC = () => {
-  const { data: clients } = useClients()
+  const { data: clients, isLoading: loading } = useClients()
   const addClientMutation = useAddClient()
   const updateClientMutation = useUpdateClient()
   const deleteClientMutation = useDeleteClient()
@@ -176,43 +177,49 @@ const AdminClients: React.FC = () => {
       <div className="w-full overflow-hidden">
         <h2 className="text-2xl font-semibold mb-4">Client List</h2>
         <ul className="w-full flex flex-wrap overflow-hidden">
-          {clients?.data?.map((client: any) => (
-            <li
-              key={client._id}
-              className="flex justify-between  w-full  max-w-xs items-center mb-1 p-1 bg-gray-100 rounded"
-            >
-              <div className="relative mt-16 w-full min-h-40 max-h-60 h-full bg-white shadow-lg  rounded-lg flex flex-col  px-4 pt-16 pb-4">
-                <img
-                  src={client.imageUrl}
-                  alt={client.name}
-                  className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full mb-4 hover:scale-110 transition-all duration-400 object-cover"
-                />
-                <div className="text-left">
-                  <p className="text-gray-500 text-sm mb-2">
-                    {client.description}
-                  </p>
-                  <h3 className="text-lg font-bold text-blue-500">
-                    {client.name}
-                  </h3>
-                  <p className="text-gray-500 text-sm">{client.designation}</p>
-                </div>{' '}
-                <div className="text-sm">
-                  <button
-                    onClick={() => setSelectedClientId(client._id)}
-                    className="bg-yellow-500 text-white py-1 px-2 rounded mr-2"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDeleteClient(client._id)}
-                    className="bg-red-500 text-white py-1 px-2 rounded"
-                  >
-                    Delete
-                  </button>
+          {loading ? (
+            <Loader />
+          ) : (
+            clients?.data?.map((client: any) => (
+              <li
+                key={client._id}
+                className="flex justify-between  w-full  max-w-xs items-center mb-1 p-1 bg-gray-100 rounded"
+              >
+                <div className="relative mt-16 w-full min-h-40 max-h-60 h-full bg-white shadow-lg  rounded-lg flex flex-col  px-4 pt-16 pb-4">
+                  <img
+                    src={client.imageUrl}
+                    alt={client.name}
+                    className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full mb-4 hover:scale-110 transition-all duration-400 object-cover"
+                  />
+                  <div className="text-left">
+                    <p className="text-gray-500 text-sm mb-2">
+                      {client.description}
+                    </p>
+                    <h3 className="text-lg font-bold text-blue-500">
+                      {client.name}
+                    </h3>
+                    <p className="text-gray-500 text-sm">
+                      {client.designation}
+                    </p>
+                  </div>{' '}
+                  <div className="text-sm">
+                    <button
+                      onClick={() => setSelectedClientId(client._id)}
+                      className="bg-yellow-500 text-white py-1 px-2 rounded mr-2"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDeleteClient(client._id)}
+                      className="bg-red-500 text-white py-1 px-2 rounded"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            ))
+          )}
         </ul>
       </div>
     </div>

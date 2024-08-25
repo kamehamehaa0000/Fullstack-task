@@ -1,11 +1,16 @@
 import React from 'react'
 import { useContacts } from '../hooks/contactHooks'
+import Loader from './Loader'
 
 const AdminContacts: React.FC = () => {
   const { data: contacts, isLoading, isError } = useContacts()
 
   if (isLoading) {
-    return <div>Loading contacts...</div>
+    return (
+      <div className="mt-20">
+        <Loader />
+      </div>
+    )
   }
 
   if (isError) {
