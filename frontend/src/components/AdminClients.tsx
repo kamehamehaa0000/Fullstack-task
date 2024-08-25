@@ -67,6 +67,7 @@ const AdminClients: React.FC = () => {
   return (
     <div className="mt-10">
       <h1 className="text-2xl font-semibold mb-6">Manage Clients</h1>
+
       <div className="flex flex-col sm:flex-row">
         <form
           onSubmit={handleAddClient}
@@ -172,9 +173,9 @@ const AdminClients: React.FC = () => {
         )}
       </div>
 
-      <div className="w-full max-w-md">
+      <div className="w-full overflow-hidden">
         <h2 className="text-2xl font-semibold mb-4">Client List</h2>
-        <ul className="w-screen flex flex-wrap">
+        <ul className="w-full flex flex-wrap overflow-hidden">
           {clients?.data?.map((client: any) => (
             <li
               key={client._id}

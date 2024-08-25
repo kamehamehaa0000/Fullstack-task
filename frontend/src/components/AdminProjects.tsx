@@ -168,9 +168,9 @@ const AdminProjects: React.FC = () => {
         )}
       </div>
 
-      <div className="w-full max-w-md">
+      <div className="w-full overflow-hidden">
         <h2 className="text-2xl font-semibold mb-4">Project List</h2>
-        <ul className="w-screen flex flex-wrap">
+        <ul className="w-screen  flex flex-wrap">
           {projects?.data?.map((project: ProjectData) => (
             <li
               key={project._id}
