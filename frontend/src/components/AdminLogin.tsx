@@ -12,7 +12,7 @@ interface LoginResponse {
 const AdminLogin: React.FC = () => {
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
-  const [cookies, setCookie] = useCookies(['adminToken'])
+  const [, setCookie] = useCookies(['adminToken'])
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()

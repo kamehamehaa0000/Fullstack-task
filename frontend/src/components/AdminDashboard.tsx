@@ -7,7 +7,7 @@ import AdminNewsletter from './AdminNewsletter'
 import AdminContacts from './AdminContacts'
 
 const AdminDashboard: React.FC = () => {
-  const [cookies, setCookie, removeCookie] = useCookies(['adminToken'])
+  const [, , removeCookie] = useCookies(['adminToken'])
   const [currentTab, setCurrentTab] = useState('')
   let element
   switch (currentTab) {
