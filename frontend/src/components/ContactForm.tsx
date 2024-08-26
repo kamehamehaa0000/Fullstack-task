@@ -18,7 +18,8 @@ const ContactForm = () => {
   }
 
   const addContact = useAddContact()
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
     await addContact.mutateAsync(formData)
     setFormData({
       fullName: '',
@@ -29,7 +30,8 @@ const ContactForm = () => {
   }
 
   return (
-    <div
+    <form
+      onSubmit={handleSubmit}
       style={{ backgroundColor: 'rgba(52, 64, 106, 0.8)' }}
       className="border text-white flex flex-col items-center p-4 w-[350px] rounded-md"
     >
@@ -39,6 +41,7 @@ const ContactForm = () => {
         style={{ backgroundColor: 'rgba(73, 87, 134, 0.6)' }}
         type="text"
         name="fullName"
+        required
         value={formData.fullName}
         onChange={handleChange}
         className="w-full my-2 border rounded-lg outline-1 outline-gray-300 px-4 py-2"
@@ -48,6 +51,7 @@ const ContactForm = () => {
         style={{ backgroundColor: 'rgba(73, 87, 134, 0.6)' }}
         type="email"
         name="email"
+        required
         value={formData.email}
         onChange={handleChange}
         className="w-full my-2 border rounded-lg outline-1 outline-gray-300 px-4 py-2"
@@ -57,6 +61,7 @@ const ContactForm = () => {
         style={{ backgroundColor: 'rgba(73, 87, 134, 0.6)' }}
         type="tel"
         name="mobile"
+        required
         value={formData.mobile}
         onChange={handleChange}
         className="w-full my-2 border rounded-lg outline-1 outline-gray-300 px-4 py-2"
@@ -66,18 +71,19 @@ const ContactForm = () => {
         style={{ backgroundColor: 'rgba(73, 87, 134, 0.6)' }}
         type="text"
         name="city"
+        required
         value={formData.city}
         onChange={handleChange}
         className="w-full my-2 border rounded-lg outline-1 outline-gray-300 px-4 py-2"
         placeholder="Area, City"
       />
       <button
-        onClick={handleSubmit}
+        type="submit"
         className="bg-[#F56C21] px-8 my-4 rounded text-white py-2"
       >
         Get Quick Quote
       </button>
-    </div>
+    </form>
   )
 }
 

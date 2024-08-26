@@ -3,7 +3,8 @@ import { useAddNewsletter } from '../hooks/newsletterHooks'
 const Newsletter = () => {
   const [email, setEmail] = useState('')
   const addNewsletter = useAddNewsletter()
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
     if (email) {
       addNewsletter.mutate(email, {
         onSuccess: () => {
@@ -23,9 +24,10 @@ const Newsletter = () => {
       </div>
       <div className="flex gap-3  items-center justify-center ">
         <div className="w-28 text-sm sm:text-base">Suscribe Us</div>
-        <div className="w-full">
+        <form onSubmit={handleSubmit} className="w-full">
           <input
-            type="text"
+            type="email"
+            required
             value={email}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setEmail(e.target.value)
@@ -34,12 +36,12 @@ const Newsletter = () => {
             placeholder="Enter Email Address"
           />
           <button
-            onClick={handleSubmit}
+            type="submit"
             className="bg-white p-2 border border-white rounded-r-lg text-blue-400"
           >
             Suscribe
           </button>
-        </div>
+        </form>
       </div>
     </div>
   )
