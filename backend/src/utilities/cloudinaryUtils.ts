@@ -8,12 +8,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_SECRET,
 })
 
-const cropOptions = {
-  width: 450,
-  height: 350,
-  crop: 'limit',
-}
-
 const uploadToCloudinary = async (localPath: string) => {
   try {
     if (!localPath) {
@@ -23,9 +17,9 @@ const uploadToCloudinary = async (localPath: string) => {
       resource_type: 'auto',
       transformation: [
         {
-          width: cropOptions.width,
-          height: cropOptions.height,
-          crop: cropOptions.crop,
+          aspect_ratio: '4:3',
+          crop: 'limit',
+          gravity: 'auto',
         },
       ],
     })
