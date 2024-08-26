@@ -18,7 +18,7 @@ const uploadToCloudinary = async (localPath: string) => {
       transformation: [
         {
           aspect_ratio: '4:3',
-          crop: 'limit',
+          crop: 'fit',
           gravity: 'auto',
         },
       ],
