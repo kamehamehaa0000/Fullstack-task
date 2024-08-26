@@ -1,4 +1,4 @@
-import homebg from '../assets/Home/homebg.svg'
+import homebg from '../assets/Home/homebg.webp'
 import ContactForm from '../components/ContactForm'
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
         style={{ backgroundImage: `url(${homebg})` }}
         className="z-99 min-h-[calc(100vh-80px)] flex sm:flex-row flex-col justify-between items-center bg-cover  bg-no-repeat "
       >
-        <div className="px-24 my-auto sm:my-0 text-white font-bold text-6xl sm:text-8xl sm:w-1/2">
+        <div className="sm:px-24 my-auto sm:my-0 text-white font-bold text-6xl sm:text-8xl sm:w-1/2">
           <h1>Consultation,</h1>
           <h1>Design,</h1>
           <h1>& Marketing.</h1>

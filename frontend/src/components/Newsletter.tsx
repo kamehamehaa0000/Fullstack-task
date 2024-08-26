@@ -13,7 +13,7 @@ const Newsletter = () => {
     }
   }
   return (
-    <div className="w-full flex bg-[#217BF4] px-4 sm:px-16 xl:px-36 h-20 items-center overflow-hidden justify-between">
+    <div className="w-full flex bg-[#217BF4] px-2 sm:px-16 xl:px-36 h-20 items-center overflow-hidden justify-between">
       <div className=" hidden sm:flex gap-4 flex-grow">
         <div>Home</div>
         <div>Services</div>
@@ -21,7 +21,7 @@ const Newsletter = () => {
         <div>Testimonials</div>
         <div>Contact</div>
       </div>
-      <div className="flex gap-3 items-center justify-center ">
+      <div className="flex gap-3  items-center justify-center ">
         <div className="w-28 text-sm sm:text-base">Suscribe Us</div>
         <div className="w-full">
           <input
