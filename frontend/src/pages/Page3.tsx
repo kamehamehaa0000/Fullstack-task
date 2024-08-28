@@ -7,7 +7,7 @@ import rbigcircle from '../assets/page3/leftbgCircle.svg'
 import rmidcircle from '../assets/page3/rightmdCircle.svg'
 import dots from '../assets/page3/dots.svg'
 import rsmArrow from '../assets/page3/rarrow.svg'
-import collection from '../assets/page3/collection1.svg'
+import collection from '../assets/page3/collection1.webp'
 
 const Page3 = () => {
   return (
